@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-family-primary: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --primary-teal: #0D5C75;
+    --vibrant-teal: #0D9488;
+    --accent-cyan: #0284C7;
+    --bg-light: #F8FAFC;
+    --panel-light: #FFFFFF;
+    --border-light: #E2E8F0;
+  }
+
+  html, body, button, input, select, textarea, svg text {
+    background-color: #F8FAFC;
+    color: #0F172A;
+    font-family: var(--font-family-primary);
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11', 'tnum';
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.011em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Universal tabular numbers for numerals and telemetry while keeping Inter font family */
+  .tabular-nums, .num-value, .telemetry-num, code, pre, kbd, samp, input, .font-mono {
+    font-family: var(--font-family-primary) !important;
+    font-variant-numeric: tabular-nums !important;
+    font-feature-settings: 'tnum' on, 'zero' on !important;
+  }
+
+  /* Custom Clean Light Mission Control Scrollbars */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F1F5F9;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+  }
+}
+
+/* Thruster pulse effect */
+@keyframes thruster-fire {
+  0% {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.01);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+}
+
+.thruster-pulse {
+  animation: thruster-fire 1.5s infinite ease-in-out;
+}
